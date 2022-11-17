@@ -1,14 +1,19 @@
+// dotenv require should be the first line of code
+require("dotenv").config();
+
 const express = require("express");
 // const router = express.Router();
 const path = require("node:path");
-const cors = require("cors");
+// const cors = require("cors");
 // initialize express server instance
 const app = express();
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json()); //next
 
-const videoRouter = require("./routes/videos");
+// const videoRouter = require("./routes/videos");
+
+// app.use("/videos", videoRouter);
 
 app.use(express.static(path.join(__dirname, "public"))); //next
 
@@ -18,17 +23,6 @@ app.get("/", (req, res) => {
     // aline-bellozo-brainflix/public/index.html
     res.send(path.join(__dirname, "public", "index.html"));
 });
-
-// router.get("/:id", (req, res) => {
-//     res.send("Video id");
-// })
-
-// app.get("/John", (req, res) => {
-//     res.json({jon:123})
-// })
-
-app.use("/videos", videoRouter);
-
 
 app.listen(8080, () => {
     console.log("Server is up and running! 🚀");
