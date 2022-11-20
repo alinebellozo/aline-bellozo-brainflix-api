@@ -66,6 +66,13 @@
         "comment": "Who ever knew travel could be so easy? Looking forward to getting to put this into practice when I fly away in the near future. Wish me good luck!",
         "likes": 0,
         "timestamp": 1625177192000
+      },
+      {
+        "id": "758586d9-28a2-4023-be00-7cc4501f2086",
+        "name": "Jane Doe",
+        "comment": "Cool videoo!",
+        "likes": 0,
+        "timestamp": "2022-11-20T05:41:35.031Z"
       }
     ]
   },
@@ -269,6 +276,13 @@
         "comment": "Drifting along the coast in a city on the water. Such incredible destinations to see all around the world.",
         "likes": 1,
         "timestamp": 1631976360000
+      },
+      {
+        "id": "7c28f8b5-1ce6-48fb-a4c0-ae373c7fb6b4",
+        "name": "Jane Doe",
+        "comment": "Amazing video!",
+        "likes": 0,
+        "timestamp": "2022-11-20T03:44:10.633Z"
       }
     ]
   },
@@ -341,25 +355,14 @@
     "id": "43ee7f72-8b79-49be-9189-81e5db959463"
   },
   {
-    "title": "123456",
+    "title": "My best video",
     "channel": "BrainStation",
     "image": "http://localhost:8080/images/joffrey.jpeg",
-    "description": "987654",
+    "description": "This is such a nice video",
     "views": 0,
     "likes": 0,
-    "timestamp": "2022-11-20T01:56:45.480Z",
+    "timestamp": "2022-11-20T05:42:06.700Z",
     "comment": [],
-    "id": "38c021c7-80bc-4fd1-9503-5a54dd35a841"
-  },
-  {
-    "title": "cool video!",
-    "channel": "BrainStation",
-    "image": "http://localhost:8080/images/joffrey.jpeg",
-    "description": "nice",
-    "views": 0,
-    "likes": 0,
-    "timestamp": "2022-11-20T02:10:22.260Z",
-    "comment": [],
-    "id": "0fdc18d2-25b6-44bb-ac00-b7c0f3dd9c31"
+    "id": "b81998f0-3580-401c-b2ae-b4e694676663"
   }
 ]
