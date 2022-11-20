@@ -40,6 +40,34 @@ router.get("/:id", (req, res) => {
     }
 });
 
+router.post("/:id/comment", (req, res) => {
+  const videoId = req.params.id;
+  const { comment } = req.body;
+  const selectedVideo = videos.find((video) => video.id === videoId);
+  
+  if (selectedVideo && comment !== "") {
+    const newComment = {
+      id: getNewId(),
+      name: "Jane Doe",
+      comment: comment,
+      likes: 0,
+      timestamp: new Date(),
+    }
+    selectedVideo.comments.push(newComment);
+    writeJSONFile(videosJSONFile, videos);
+
+    res.status(201).json(videos);
+  } else {
+    let msg = "The video you're trying to comment on doesn't exist!";
+    if (comment === "") {
+      msg = "The comment field is blank, please write something.";
+    }
+    res.status(404).json({ error: msg })
+  }
+  
+  return res;
+})
+
 // create API endpoint with POST request to post new videos
 router.post("/", (req, res) => {
   console.log(req.body.title);
