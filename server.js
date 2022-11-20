@@ -2,20 +2,19 @@
 require("dotenv").config();
 
 const express = require("express");
-const router = express.Router();
+
 const path = require("node:path");
-// const cors = require("cors");
+const cors = require("cors");
 // initialize express server instance
 const app = express();
 
 const videoRouter = require("./routes/videos");
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json()); //next
 
-app.use("/videos", videoRouter);
-
 app.use(express.static(path.join(__dirname, "public"))); //next
+app.use("/videos", videoRouter);
 
 app.get("/", (req, res) => {
     // serve the index.html file from the public folder

@@ -3,6 +3,7 @@ const router = express.Router();
 // json file path
 const path = require("node:path");
 const { restart } = require("nodemon");
+const { getNewId, writeJSONFile } = require("../helper/helper");
 
 const videosJSONFile = path.join(__dirname, "../data/videos.json");
 const videos = require(videosJSONFile);
@@ -22,7 +23,7 @@ router.get("/", (req, res) => {
     res.status(200).json(videos);
   } catch (error) {
     console.log("Error retrieving the videos", error);
-  }    
+  }
 });
 
 // get videos by ID
@@ -40,9 +41,8 @@ router.get("/:id", (req, res) => {
 });
 
 // create API endpoint with POST request to post new videos
-// http://localhost:8080/videos/post
 router.post("/", (req, res) => {
-  console.log(req.body);
+  console.log(req.body.title);
   const { title, description } = req.body;
   if (!title || !description) {
     return res.status(400).json({
@@ -51,20 +51,20 @@ router.post("/", (req, res) => {
   }
 
   const newVideo = {
-    id: getNewId(),
-    title,
+    title: title,
     channel: "BrainStation",
-    image: "/images/joffrey.jpeg",
-    timestamp: new Date(),
-    description,
+    image: "http://localhost:8080/images/joffrey.jpeg",
+    description: description,
     views: 0,
     likes: 0,
-    //comments,
+    timestamp: new Date(),
+    comment: [],
+    id: getNewId(),
   };
-
+ 
   // update json file with new video
   videos.push(newVideo);
-  writeJSONFile(studentsJSONFile, videos);
+  writeJSONFile(videosJSONFile, videos);
 
   // respond to the client with new video and status code 201
   res.status(201).json(newVideo);
