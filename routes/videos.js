@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
     try {
     res.status(200).json(videos);
   } catch (error) {
-    console.log("Error retrieving the videos", error);
+    // console.log("Error retrieving the videos", error);
   }
 });
 
@@ -70,7 +70,7 @@ router.post("/:id/comment", (req, res) => {
 
 // create API endpoint with POST request to post new videos
 router.post("/", (req, res) => {
-  console.log(req.body.title);
+  // console.log(req.body.title);
   const { title, description } = req.body;
   if (!title || !description) {
     return res.status(400).json({
